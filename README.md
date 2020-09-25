@@ -27,6 +27,7 @@ php artisan serve
      - filters (array)
      - per_page
      - page
+     - excel
 
 ##Create auto in db
 * POST: http://127.0.0.1:8000/api/v1/auto
