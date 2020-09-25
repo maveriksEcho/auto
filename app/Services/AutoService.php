@@ -31,13 +31,17 @@ class AutoService
      */
     public function getByVinCode($vin)
     {
-        $response = $this->client->post('vehicles/DecodeVINValuesBatch/' . $vin, [
-            'query' => [
-                'format' => 'json',
-            ],
-        ]);
-
-        return $this->getResult($response);
+        try{
+            $response = $this->client->post('vehicles/DecodeVINValuesBatch/' . $vin, [
+                'query' => [
+                    'format' => 'json',
+                ],
+            ]);
+        }catch (\Exception $exception){
+            return collect();
+        }
+        $response = $this->getResult($response);
+        return collect($response->first());
     }
 
     /**
