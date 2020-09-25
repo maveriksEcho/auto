@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'auto' => [
+        'base_uri' => 'https://vpic.nhtsa.dot.gov/api/',
+        'timeout' => 30
+    ],
+
 ];
